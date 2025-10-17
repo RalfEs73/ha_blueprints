@@ -7,8 +7,12 @@ blueprint:
     homeassistant:
         min_version: 2024.6.0
     input:
-        general:
-            name: General Input
-            icon: mdi:tune
-            description: Required to run the Blueprint
-            collapsed: false
+        motion_entity:
+        name: Motion Sensor
+        selector:
+            entity:
+                filter:
+                    - device_class: occupancy
+                      domain: binary_sensor
+                    - device_class: motion
+                      domain: binary_sensor
