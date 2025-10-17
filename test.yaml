@@ -1,0 +1,14 @@
+blueprint:
+    name: Test
+    description: >-
+        Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test
+    domain: automation
+    author: RalfEs73 (https://github.com/RalfEs73)
+    homeassistant:
+        min_version: 2024.6.0
+    input:
+        general:
+            name: General Input
+            icon: mdi:tune
+            description: Required to run the Blueprint
+            collapsed: false
