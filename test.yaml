@@ -5,11 +5,9 @@ blueprint:
   author: RalfEs73
   source_url: https://raw.githubusercontent.com/RalfEs73/ha_blueprints/refs/heads/main/test.yaml
   input:
-    boolean_entity:
-      name: Schalter Sensor
+    light_target:
+      name: Licht
       selector:
-        entity:
-          filter:
-            domain:
-            - binary_sensor
-          multiple: false
+        target:
+          entity:
+            domain: light
