@@ -1,18 +1,19 @@
 blueprint:
-    name: Test
-    description: >-
-        Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test
-    domain: automation
-    author: RalfEs73 (https://github.com/RalfEs73)
-    homeassistant:
-        min_version: 2024.6.0
-    input:
-        motion_entity:
-        name: Motion Sensor
-        selector:
-            entity:
-                filter:
-                    - device_class: occupancy
-                      domain: binary_sensor
-                    - device_class: motion
-                      domain: binary_sensor
+  name: Test
+  description: >-
+    Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test, Test
+  domain: automation
+  author: RalfEs73 (https://github.com/RalfEs73)
+  homeassistant:
+    min_version: 2024.6.0
+
+  input:
+    motion_entity:
+      name: Motion Sensor
+      selector:
+      entity:
+        filter:
+          - device_class: occupancy
+            domain: binary_sensor
+          - device_class: motion
+            domain: binary_sensor
