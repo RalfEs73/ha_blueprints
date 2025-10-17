@@ -3,13 +3,13 @@ blueprint:
   description: Test, Test, Test, Test, Test, Test, Test, Test, Test
   domain: automation
   author: RalfEs73
+  source_url: https://raw.githubusercontent.com/RalfEs73/ha_blueprints/refs/heads/main/test.yaml
   input:
-    motion_entity:
-      name: Motion Sensor
+    boolean_entity:
+      name: Schalter Sensor
       selector:
         entity:
           filter:
-            - device_class: occupancy
-              domain: binary_sensor
-            - device_class: motion
-              domain: binary_sensor
+            domain:
+            - binary_sensor
+          multiple: false
