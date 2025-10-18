@@ -7,6 +7,7 @@ blueprint:
   input:
     light_target:
       name: Licht
+      default: {}
       selector:
         target:
           entity:
