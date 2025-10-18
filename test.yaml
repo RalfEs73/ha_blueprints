@@ -5,6 +5,14 @@ blueprint:
   author: RalfEs73
   source_url: https://raw.githubusercontent.com/RalfEs73/ha_blueprints/refs/heads/main/test.yaml
   input:
+    schalter_target:
+      name: Schalter
+      default: {}
+      selector:
+        target:
+          entity:
+          - domain:
+            - boolean
     light_target:
       name: Licht
       default: {}
@@ -13,14 +21,7 @@ blueprint:
           entity:
           - domain:
             - light
-    schalter_target:
-      name: Schalter
-      default: {}
-      selector:
-        target:
-          entity:
-          - domain:
-            - switch
+
 
 triggers:
   trigger: state
