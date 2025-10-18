@@ -13,10 +13,18 @@ blueprint:
           entity:
           - domain:
             - light
+    schalter_target:
+      name: Schalter
+      default: {}
+      selector:
+        target:
+          entity:
+          - domain:
+            - switch
 
 triggers:
   trigger: state
-  entity_id: !input light_target
+  entity_id: !input schalter_target
   from: "off"
   to: "on"
 
