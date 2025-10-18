@@ -12,7 +12,7 @@ blueprint:
         target:
           entity:
           - domain:
-            - boolean
+            - binary_sensor
     light_target:
       name: Licht
       default: {}
