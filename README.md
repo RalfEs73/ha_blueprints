@@ -2,6 +2,7 @@
 
 ### Update Benachrichtigung
 Benachrichtigt den Benutzer auf dem Smartphone, sobald ein Update für HA Core, HA OS, HA Supervisor oder HACS verfügbar ist.  
+  
 Parameter:
 *	Smartphone
 
