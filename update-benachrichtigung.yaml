@@ -1,0 +1,105 @@
+blueprint:
+  name: Update Benachrichtigung
+  description: Benachrichtigt den Benutzer auf dem Smartphone, sobald ein Update für HA Core, HA OS, HA Supervisor oder HACS verfügbar ist.
+  domain: automation
+  author: ralfes73
+
+  input:
+    phone_input:
+      name: Smart Phone
+      selector:
+        device:
+          filter:
+            integration: mobile_app
+
+mode: queued
+max: 10
+
+triggers:
+  - alias: Update HACS
+    entity_id:
+      - update.hacs_update
+    to: "on"
+    id: HACS Updates
+    trigger: state
+  - alias: Update HA Core
+    entity_id:
+      - update.home_assistant_core_update
+    to: "on"
+    id: HA Core Update
+    trigger: state
+  - entity_id:
+      - update.home_assistant_operating_system_update
+    to: "on"
+    alias: Update HA OS
+    id: HA OS
+    trigger: state
+  - entity_id:
+      - update.home_assistant_supervisor_update
+    to: "on"
+    alias: Update HA Supervisor
+    id: HA Supervisor
+    trigger: state
+
+conditions: []
+actions:
+  - if:
+      - condition: trigger
+        id:
+          - HACS Updates
+    then:
+      - device_id: !input phone_input
+        domain: mobile_app
+        type: notify
+        message: Es gibt Updates für HACS
+        data:
+          ttl: 0
+          priority: high
+          channel: Updates
+        title: Updates
+    alias: Update HACS
+  - if:
+      - condition: trigger
+        id:
+          - HA Core Update
+    then:
+      - device_id: !input phone_input
+        domain: mobile_app
+        type: notify
+        message: Für HA Core gibt es ein Update
+        data:
+          ttl: 0
+          priority: high
+          channel: Updates
+        title: Updates
+    alias: Update HA Core
+  - if:
+      - condition: trigger
+        id:
+          - HA OS
+    then:
+      - device_id: !input phone_input
+        domain: mobile_app
+        type: notify
+        message: Für HA OS gibt es ein Update
+        data:
+          ttl: 0
+          priority: high
+          channel: Updates
+        title: Updates
+    alias: Update HA OS
+  - if:
+      - condition: trigger
+        id:
+          - HA Supervisor
+    then:
+      - device_id: !input phone_input
+        domain: mobile_app
+        type: notify
+        message: Für HA Supervisor gibt es ein Update
+        data:
+          ttl: 0
+          priority: high
+          channel: Updates
+        title: Updates
+    alias: Update HA Supervisor
